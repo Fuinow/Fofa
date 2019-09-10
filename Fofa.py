@@ -4,6 +4,7 @@ import requests
 import base64
 import re
 import sys
+from bs4 import BeautifulSoup
 
 class Fofa(object):
 
@@ -15,8 +16,17 @@ class Fofa(object):
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0"
         }
 
-    def get_ip_list(self, rule):
-        return
+    def get_host_list(self, rule):
+        host_list = []
+        qbase64 = base64.b64encode(rule.encode('utf-8'))
+        url = 'https://fofa.so/result?qbase64=' + str(qbase64, 'utf-8')
+        resp = requests.get(url, headers=self.headers)
+        soup = BeautifulSoup(resp.text, 'html5lib')
+        items = soup.find_all('div', class_='list_mod_t')
+        for item in items:
+            host = item.find('a').get('href')
+            host_list.append(host)
+        return host_list
 
     def get_text(self, host):
         # 数据清洗
@@ -139,7 +149,7 @@ class Fofa(object):
 
 if __name__ == '__main__':
     fofa = Fofa()
-    print(fofa.get_rule("app=\"Zabbix\""))
+    print(fofa.get_host_list("app=\"Zabbix\""))
 
 
 
