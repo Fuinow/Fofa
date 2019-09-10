@@ -3,10 +3,12 @@
 import requests
 import base64
 import re
+import sys
 
 class Fofa(object):
 
     def __init__(self):
+        self.rule_list = []
         self.app = ''
         self.app_count = 0
         self.headers = {
@@ -16,9 +18,23 @@ class Fofa(object):
     def get_ip_list(self, rule):
         return
 
-    def get_text(self, ip):
+    def get_text(self, host):
         # 数据清洗
-        return 
+        headers = {}
+        white_header = ['Cache-Control', 'Connection', 'Content-Encoding', 'Content-Type', 'Date', 'Transfer-Encoding', 'Content-Length', 'Pragma', 'X-Frame-Options', 'X-XSS-Protection', 'Expires']
+        resp = requests.get(host, headers=self.headers, verify=False)
+        text = resp.text.replace('\n', '').replace('\t', '')
+        with open('write_body.txt', 'r') as f:
+            for rule in f.readlines():
+                text = text.replace(rule.strip(), '')
+        for k,v in resp.headers.items():
+            if k not in white_header:
+                with open('white_header.txt', 'r') as f:
+                    for keywords in f.readlines():
+                        v = v.replace(keywords.strip(), '')
+                        headers[k] = v
+
+        return text, headers
 
     def get_ip_count(self, rule):
         print(rule)
@@ -29,6 +45,7 @@ class Fofa(object):
             count_str = re.search('获得 (.*) 条匹配结果', resp.text).group(1)
         except:
             print('[-]Error: ' + url)
+            return 0
         count = int(count_str.replace(',', ''))
         return count
 
@@ -43,6 +60,7 @@ class Fofa(object):
             return True
         else:
             return False
+    
 
     def get_same_str(self, text1, text2, min_len=10, max_len=500):
         pos_list = []
@@ -84,8 +102,26 @@ class Fofa(object):
 
         return result
 
-    def sub_rule_clean(self, sub_rule):
-        return sub_rule.replace('\n', '').replace('\t', '').replace('\"', '\\\"')
+    def check_body(self, text1, text2):
+        sub_list = self.get_same_str(text1, text2)
+        for sub_rule in sub_list:
+            sub_rule = 'body=\"' + sub_rule.replace('\"', '\\\"') + '\"'
+            if self.is_sub_rule(sub_rule):
+                print('[+] Found sub_rule: ' + sub_rule)
+                self.rule_list.append(sub_rule)
+        return 
+
+    def check_header(self, headers1, headers2):
+        for k,v in headers1.items():
+            if k in headers2.keys():
+                sub_list = self.get_same_str(headers1[k], headers2[k], min_len=4)
+                for sub_rule in sub_list:
+                    sub_rule = 'header=\"' + sub_rule.replace('\"', '\\\"') + '\"'
+                    if self.is_sub_rule(sub_rule):
+                        print('[+] Found sub_rule: ' + sub_rule)
+                        self.rule_list.append(sub_rule)    
+        return 
+
 
     def get_rule(self, app):
         self.app = app
@@ -93,22 +129,17 @@ class Fofa(object):
 #       ip_list = self.get_ip_list
 #       text1 = get_text(ip_list[0])
 #       text2 = get_text(ip_list[1])
-        text1 = requests.get('http://64.32.8.26/', verify=False).text
-        text2 = requests.get('http://121.15.254.143:8888/', verify=False).text
-        sub_list = self.get_same_str(text1, text2)
-        for sub_rule in sub_list:
-            sub_rule = 'body=\"' + self.sub_rule_clean(sub_rule) + '\"'
-            if self.is_sub_rule(sub_rule):
-                print('[+] Found sub_rule: ' + sub_rule)
-
-        return
+        text1, headers1 = self.get_text('https://77.87.215.179/')
+        text2, headers2 = self.get_text('http://202.152.60.53:81/')
+        self.check_header(headers1, headers2)
+        self.check_body(text1, text2)
+        return self.rule_list
 
 
 
 if __name__ == '__main__':
-    print(11)
     fofa = Fofa()
-    fofa.get_rule("app=\"Zabbix\"")
+    print(fofa.get_rule("app=\"Zabbix\""))
 
 
 
