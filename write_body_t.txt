@@ -58,3 +58,20 @@ showGuiMessaging=
  &copy; 2001&ndash;201
  , <a class="grey link-alt" target="_blank" href="http://www.zabbix.com/"
  Zabbix SIA</a
+ img/ms-tile-144x144.png\
+<!DOCTYPE html
+" sizes="192x192" href="
+img/touch-icon-192x192.png"
+<meta name="csrf-token" content=""/
+Image" content="
+img/ms-tile-144x144.png"
+Color" content="#d40000"
+server-name"
+signin-container"
+signin-logo"
+lass="checkbox-radio
+autologin"
+Remember me for 30 days</label
+<button type="submit" id="enter" name="enter" value="Sign in"
+signin-links"
+&nbsp;&nbsp;•&nbsp;&nbsp;://www.zabbix.com/support.php"']

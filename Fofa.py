@@ -8,13 +8,14 @@ from bs4 import BeautifulSoup
 
 class Fofa(object):
 
-    def __init__(self):
+    def __init__(self, app):
         self.rule_list = []
-        self.app = ''
-        self.app_count = 0
+        self.app = app
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0"
         }
+        self.app_count = self.get_ip_count(app)
+
 
     def get_host_list(self, rule):
         host_list = []
@@ -34,7 +35,7 @@ class Fofa(object):
         white_header = ['Cache-Control', 'Connection', 'Content-Encoding', 'Content-Type', 'Date', 'Transfer-Encoding', 'Content-Length', 'Pragma', 'X-Frame-Options', 'X-XSS-Protection', 'Expires']
         resp = requests.get(host, headers=self.headers, verify=False)
         text = resp.text.replace('\n', '').replace('\t', '')
-        with open('write_body.txt', 'r') as f:
+        with open('write_body_t.txt', 'r',encoding='utf-8') as f:
             for rule in f.readlines():
                 text = text.replace(rule.strip(), '')
         for k,v in resp.headers.items():
@@ -47,7 +48,6 @@ class Fofa(object):
         return text, headers
 
     def get_ip_count(self, rule):
-        print(rule)
         qbase64 = base64.b64encode(rule.encode('utf-8'))
         url = 'https://fofa.so/result?qbase64=' + str(qbase64, 'utf-8')
         resp = requests.get(url, headers=self.headers)
@@ -116,12 +116,17 @@ class Fofa(object):
         sub_list = self.get_same_str(text1, text2)
         for sub_rule in sub_list:
             sub_rule = 'body=\"' + sub_rule.replace('\"', '\\\"') + '\"'
+            print(sub_rule)
             if self.is_sub_rule(sub_rule):
                 print('[+] Found sub_rule: ' + sub_rule)
                 self.rule_list.append(sub_rule)
+            if 'Zabbix SIA' in sub_rule:
+                return
         return 
 
     def check_header(self, headers1, headers2):
+        print(headers1)
+        print(headers2)
         for k,v in headers1.items():
             if k in headers2.keys():
                 sub_list = self.get_same_str(headers1[k], headers2[k], min_len=4)
@@ -133,23 +138,29 @@ class Fofa(object):
         return 
 
 
-    def get_rule(self, app):
-        self.app = app
-        self.app_count = self.get_ip_count(app)
-#       ip_list = self.get_ip_list
-#       text1 = get_text(ip_list[0])
-#       text2 = get_text(ip_list[1])
-        text1, headers1 = self.get_text('https://77.87.215.179/')
-        text2, headers2 = self.get_text('http://202.152.60.53:81/')
+    def get_rule(self):
+        if self.rule_list:
+            rule = '&&'.join(self.rule_list).replace('body=', 'body!=').replace('header=', 'header!=') + '&&'+self.app
+        else:
+            rule = self.app
+        print(rule)
+        host_list = self.get_host_list(rule)
+        print(host_list[4])
+        print(host_list[5])
+        text1, headers1 = self.get_text(host_list[4])
+        text2, headers2 = self.get_text(host_list[5])
         self.check_header(headers1, headers2)
         self.check_body(text1, text2)
+        if self.get_ip_count('||'.join(self.rule_list)) != self.app_count:
+            self.get_rule()
         return self.rule_list
 
-
+    def start(self):
+        return self.get_rule()
 
 if __name__ == '__main__':
-    fofa = Fofa()
-    print(fofa.get_host_list("app=\"Zabbix\""))
+    fofa = Fofa("app=\"Zabbix\"")
+    print(fofa.start())
 
 
 
