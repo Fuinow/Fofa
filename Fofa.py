@@ -4,11 +4,16 @@ import requests
 import base64
 import re
 import sys
+import time
+import random
 from bs4 import BeautifulSoup
+
+requests.packages.urllib3.disable_warnings()
 
 class Fofa(object):
 
     def __init__(self, app):
+        self.checked_host_list = []
         self.rule_list = []
         self.app = app
         self.headers = {
@@ -25,9 +30,20 @@ class Fofa(object):
         soup = BeautifulSoup(resp.text, 'html5lib')
         items = soup.find_all('div', class_='list_mod_t')
         for item in items:
-            host = item.find('a').get('href')
-            host_list.append(host)
-        return host_list
+            if len(host_list) == 2:
+                return host_list
+            else:
+                host = item.find('a').get('href')
+                if host not in self.checked_host_list:
+                    try:
+                        requests.get(host, timeout=5)
+                        host_list.append(host)
+                        self.checked_host_list.append(host)
+                    except:
+                        continue
+                else:
+                    pass
+        return
 
     def get_text(self, host):
         # 数据清洗
@@ -60,10 +76,13 @@ class Fofa(object):
         return count
 
     def is_sub_rule(self, sub_rule):
+        print('[+] Test rule: ' + sub_rule)
         count1 = self.get_ip_count(sub_rule)
+        time.sleep(random.randint(1,3))
         if count1 > self.app_count:
             return False
         count2 = self.get_ip_count(sub_rule+'&&'+self.app)
+        time.sleep(random.randint(1,3))
         print(count1)
         print(count2)
         if count1 != 0 and count1 == count2:
@@ -114,19 +133,16 @@ class Fofa(object):
 
     def check_body(self, text1, text2):
         sub_list = self.get_same_str(text1, text2)
+        print('[+] Get body list')
+        print(sub_list)
         for sub_rule in sub_list:
             sub_rule = 'body=\"' + sub_rule.replace('\"', '\\\"') + '\"'
-            print(sub_rule)
             if self.is_sub_rule(sub_rule):
-                print('[+] Found sub_rule: ' + sub_rule)
+                print('[!] Found sub_rule: ' + sub_rule)
                 self.rule_list.append(sub_rule)
-            if 'Zabbix SIA' in sub_rule:
-                return
         return 
 
-    def check_header(self, headers1, headers2):
-        print(headers1)
-        print(headers2)
+    def check_header(self, headers1, headers2):      
         for k,v in headers1.items():
             if k in headers2.keys():
                 sub_list = self.get_same_str(headers1[k], headers2[k], min_len=4)
@@ -143,12 +159,11 @@ class Fofa(object):
             rule = '&&'.join(self.rule_list).replace('body=', 'body!=').replace('header=', 'header!=') + '&&'+self.app
         else:
             rule = self.app
-        print(rule)
+        print('[+] Test: '+rule)
         host_list = self.get_host_list(rule)
-        print(host_list[4])
-        print(host_list[5])
-        text1, headers1 = self.get_text(host_list[4])
-        text2, headers2 = self.get_text(host_list[5])
+        print('[+] Test host: ' + host_list[0] + ',' + host_list[1])
+        text1, headers1 = self.get_text(host_list[0])
+        text2, headers2 = self.get_text(host_list[1])
         self.check_header(headers1, headers2)
         self.check_body(text1, text2)
         if self.get_ip_count('||'.join(self.rule_list)) != self.app_count:
@@ -159,8 +174,10 @@ class Fofa(object):
         return self.get_rule()
 
 if __name__ == '__main__':
-    fofa = Fofa("app=\"Zabbix\"")
-    print(fofa.start())
+    fofa = Fofa("app=\"Jenkins\"")
+    fofa.start()
 
 
 
+# "测试过的ip白名单"
+# 

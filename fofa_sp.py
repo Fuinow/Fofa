@@ -35,9 +35,9 @@ class CountParser(object):
 		req = urllib2.Request(url,headers=headers)
 		try:
 			buf = urllib2.urlopen(req).read()
-		except Exception,e:
-			print e
-			print "Network error"
+		except Exception as e:
+			print(e)
+			print("Network error")
 		if buf:
 			return self.filter(buf)
 		else:
@@ -77,7 +77,7 @@ class Fofa(object):
 
 	def test(self):
 		a = CountParser("header=\"JDWS/2.0\"")
-		print a.get_country()
+		print(a.get_country())
 
 	def _make_rule_time(self, after, before, rule):
 		before = time.localtime(before)
@@ -86,16 +86,16 @@ class Fofa(object):
 		return rule		
 
 	def rule_base_time(self, root_rule):
-		print "[!] Start rule base time"
+		print("[!] Start rule base time")
 		max_time = time.time()
 		min_time = max_time - 31536000
 		temp_time = max_time - 31536000
 		time_list = []	
 		while True:
-			print "[!] Test rule : " + self._make_rule_time(temp_time, max_time, root_rule)
+			print("[!] Test rule : " + self._make_rule_time(temp_time, max_time, root_rule))
 			if max_time - temp_time <= 5000000:
 				rule = self._make_rule_time(temp_time, max_time, root_rule)
-				print "[+] Get rule : " + rule
+				print("[+] Get rule : " + rule)
 				self.rule_list.append(rule)
 				if temp_time == min_time:
 					break
@@ -106,7 +106,7 @@ class Fofa(object):
 				pass
 			if CountParser(self._make_rule_time(temp_time, max_time, root_rule)).get_ip_count() <= self.MAX_COUNT:
 				rule = self._make_rule_time(temp_time, max_time, root_rule)
-				print rule
+				print(rule)
 				self.rule_list.append(rule)
 				if temp_time == min_time:
 					break
@@ -117,7 +117,7 @@ class Fofa(object):
 				temp_time = temp_time + 2592000
 	
 	def make_rule(self):
-		print "[!] Start make rule"
+		print("[!] Start make rule")
 		counts = CountParser(self.root_rule)
 		country_list = counts.get_country()		
 		count = counts.get_ip_count()
@@ -136,20 +136,20 @@ class Fofa(object):
 						if count > self.MAX_COUNT:
 							self.rule_base_time(temp_rule)
 						else:
-							print "[+] Get rule : " + temp_rule
+							print("[+] Get rule : " + temp_rule)
 							self.rule_list.append(temp_rule)
 				else:
-					print "[+] Get rule : " + temp_rule
+					print("[+] Get rule : " + temp_rule)
 					self.rule_list.append(temp_rule)
 		else:
-			print "[+] Get rule : " + self.root_rule
+			print("[+] Get rule : " + self.root_rule)
 			self.rule_list.append(self.root_rule)
 		return self.rule_list
 
 	def get_ip_list(self, rule):
 		rule = base64.b64encode(rule)
 		url = "https://fofa.so/result?qbase64=" + rule
-		print "URL Length : %d"%len(url)
+		print("URL Length : %d"%len(url))
 #		print url
 #		print self.temp_rule
 		buf = urllib2.urlopen(url).read()
@@ -164,7 +164,7 @@ class Fofa(object):
 #			domain = item.find("div", class_="list_mod_t")
 #			a = domain.find("a")
 #			host = a.get("href")
-			print "[+] Get IP: %s"%ip
+			print("[+] Get IP: %s"%ip)
 			self.temp_host.add(ip)
 			self.host_list.add(ip)
 
@@ -174,7 +174,7 @@ class Fofa(object):
 		buf = urllib2.urlopen(url).read()
 		count = re.search(" 获得 (.*) 条匹配结果",buf).group(1)
 		self.count = int(count.replace(",",""))
-		print "get host count : %s" %count 
+		print("get host count : %s" %count)
 
 	def output(self, filename):
 		f = open(filename, "w")
@@ -186,40 +186,40 @@ class Fofa(object):
 	def start(self):
 		self.make_rule()
 		for rule in self.rule_list:
-			print "[!] Start get rule : " + rule
+			print("[!] Start get rule : " + rule)
 			self.over = 0
 			self.temp_rule = rule
 			while not self.over:
 				try:
 					self.get_ip_list(self.temp_rule)
-				except Exception,err:
-					print err
+				except Exception as err:
+					print(err)
 					break
 				for host in self.temp_host:
 					rule_padd = " &&ip!=\"%s\"" %host
 					self.temp_rule += rule_padd
 				self.temp_host.clear()
-				print "Get host : %d"%len(self.host_list)
+				print("Get host : %d"%len(self.host_list))
 				time.sleep(random.randint(2,4))
 		self.output("out.txt")
-		print "[+] Down"
+		print("[+] Down")
 
 	def test_get_list(self):
 		self.temp_rule = self.root_rule
 		while not self.over:
 			try:
 				self.get_ip_list(self.temp_rule)
-			except Exception,err:
-				print err
+			except Exception as err:
+				print(err)
 				break
 			for host in self.temp_host:
 				rule_padd = " &&ip!=\"%s\"" %host
 				self.temp_rule += rule_padd
 			self.temp_host.clear()
-			print "Get host : %d"%len(self.host_list)
+			print("Get host : %d"%len(self.host_list))
 			time.sleep(random.randint(2,4))
 		self.output("out.txt")
-		print "[+] Down"
+		print("[+] Down")
 
 #f = open("ip.txt","w")
 #rule = "header=\"JDWS/2.0\""
@@ -230,6 +230,6 @@ class Fofa(object):
 #	f.write("\n")
 #f.close()
 
-a = Fofa("app=\"pulsesecure-SSL-VPN\" && port=80 && country=JP")
-print a.test_get_list()
+a = Fofa("app=\"Jenkins\"")
+print(a.test_get_list())
 #a.start()
