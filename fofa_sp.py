@@ -2,7 +2,7 @@
 #url长度超过3500服务器无法解析
 
 
-import urllib2
+import requests
 import base64
 import re
 import time
@@ -32,9 +32,8 @@ class CountParser(object):
 					"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko/20100101 Firefox/67.0",
 					"X-Requested-With": "XMLHttpRequest"
 					}
-		req = urllib2.Request(url,headers=headers)
 		try:
-			buf = urllib2.urlopen(req).read()
+			buf = requests.get(url, headers=headers).text
 		except Exception as e:
 			print(e)
 			print("Network error")
@@ -147,12 +146,12 @@ class Fofa(object):
 		return self.rule_list
 
 	def get_ip_list(self, rule):
-		rule = base64.b64encode(rule)
-		url = "https://fofa.so/result?qbase64=" + rule
+		rule = base64.b64encode(rule.encode('utf-8'))
+		url = "https://fofa.so/result?qbase64=" + rule.decode('utf-8')
 		print("URL Length : %d"%len(url))
 #		print url
 #		print self.temp_rule
-		buf = urllib2.urlopen(url).read()
+		buf = requests.get(url).text
 		count = re.search(" 获得 (.*) 条匹配结果",buf).group(1)
 		if count == "0":
 			self.over = 1
@@ -171,7 +170,7 @@ class Fofa(object):
 	def get_count(self, rule):
 		rule = base64.b64encode(rule)
 		url = "https://fofa.so/result?qbase64=" + rule
-		buf = urllib2.urlopen(url).read()
+		buf = requests.get(url).text
 		count = re.search(" 获得 (.*) 条匹配结果",buf).group(1)
 		self.count = int(count.replace(",",""))
 		print("get host count : %s" %count)
@@ -209,8 +208,8 @@ class Fofa(object):
 		while not self.over:
 			try:
 				self.get_ip_list(self.temp_rule)
-			except Exception as err:
-				print(err)
+			except Exception as e:
+				print(e)
 				break
 			for host in self.temp_host:
 				rule_padd = " &&ip!=\"%s\"" %host
@@ -230,6 +229,6 @@ class Fofa(object):
 #	f.write("\n")
 #f.close()
 
-a = Fofa("app=\"Jenkins\"")
+a = Fofa("app=\"Zabbix\" && port=80")
 print(a.test_get_list())
 #a.start()
