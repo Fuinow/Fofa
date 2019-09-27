@@ -76,6 +76,12 @@ class Fofa(object):
         return count
 
     def is_sub_rule(self, sub_rule):
+        
+        # just test
+        # import random
+        # print('[+] Test rule: ' + sub_rule)
+        # return random.randint(0,1)
+
         print('[+] Test rule: ' + sub_rule)
         count1 = self.get_ip_count(sub_rule)
         time.sleep(random.randint(1,3))
@@ -143,14 +149,20 @@ class Fofa(object):
         return 
 
     def check_header(self, headers1, headers2):      
-        for k,v in headers1.items():
-            if k in headers2.keys():
-                sub_list = self.get_same_str(headers1[k], headers2[k], min_len=4)
-                for sub_rule in sub_list:
-                    sub_rule = 'header=\"' + sub_rule.replace('\"', '\\\"') + '\"'
-                    if self.is_sub_rule(sub_rule):
-                        print('[+] Found sub_rule: ' + sub_rule)
-                        self.rule_list.append(sub_rule)    
+        keys1 = set(headers1.keys())
+        keys2 = set(headers2.keys())
+        keys = keys1 & keys2
+        for key in keys:
+            sub_rule = 'header=\"' + key.replace('\"', '\\\"') + '\"'
+            if self.is_sub_rule(sub_rule):
+                print('[+] Found sub_rule: ' + sub_rule)
+                self.rule_list.append(sub_rule)  
+            sub_list = self.get_same_str(headers1[key], headers2[key], min_len=4)
+            for sub_rule in sub_list:
+                sub_rule = 'header=\"' + sub_rule.replace('\"', '\\\"') + '\"'
+                if self.is_sub_rule(sub_rule):
+                    print('[+] Found sub_rule: ' + sub_rule)
+                    self.rule_list.append(sub_rule)    
         return 
 
 
@@ -162,6 +174,9 @@ class Fofa(object):
         print('[+] Test: '+rule)
         host_list = self.get_host_list(rule)
         print('[+] Test host: ' + host_list[0] + ',' + host_list[1])
+
+        # host_list = ['http://54.162.93.196:8080', 'http://78.26.140.52:2323'] # just test
+
         text1, headers1 = self.get_text(host_list[0])
         text2, headers2 = self.get_text(host_list[1])
         self.check_header(headers1, headers2)
@@ -174,7 +189,7 @@ class Fofa(object):
         return self.get_rule()
 
 if __name__ == '__main__':
-    fofa = Fofa("app=\"Jenkins\"")
+    fofa = Fofa("app=\"zabbix\"")
     fofa.start()
 
 
