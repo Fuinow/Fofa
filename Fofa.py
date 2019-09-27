@@ -155,13 +155,13 @@ class Fofa(object):
         for key in keys:
             sub_rule = 'header=\"' + key.replace('\"', '\\\"') + '\"'
             if self.is_sub_rule(sub_rule):
-                print('[+] Found sub_rule: ' + sub_rule)
+                print('[!] Found sub_rule: ' + sub_rule)
                 self.rule_list.append(sub_rule)  
             sub_list = self.get_same_str(headers1[key], headers2[key], min_len=4)
             for sub_rule in sub_list:
                 sub_rule = 'header=\"' + sub_rule.replace('\"', '\\\"') + '\"'
                 if self.is_sub_rule(sub_rule):
-                    print('[+] Found sub_rule: ' + sub_rule)
+                    print('[!] Found sub_rule: ' + sub_rule)
                     self.rule_list.append(sub_rule)    
         return 
 
