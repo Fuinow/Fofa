@@ -1,4 +1,6 @@
 #coding=utf8
+from gevent import monkey
+monkey.patch_all()
 
 import requests
 import base64
@@ -6,15 +8,19 @@ import re
 import sys
 import time
 import random
+from gevent.pool import Pool
 from bs4 import BeautifulSoup
+
 
 requests.packages.urllib3.disable_warnings()
 
 class Fofa(object):
 
     def __init__(self, app):
-        self.checked_host_list = []
-        self.rule_list = []
+        self.check_list_info = []   # 获取的目标网页信息
+        self.checked_host_list = []     # 已经比较过的 host
+        self.rule_list = []     # 已获取到的子规则
+        self.checked_rule_list = []     # 已经验证过的规则，防止重复验证
         self.app = app
         self.headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0"
@@ -30,20 +36,20 @@ class Fofa(object):
         soup = BeautifulSoup(resp.text, 'html5lib')
         items = soup.find_all('div', class_='list_mod_t')
         for item in items:
-            if len(host_list) == 2:
-                return host_list
+            try:
+                host = item.find('a', target="_blank").get('href')      # 非 http 协议的 HOST 匹配不到 URL，暂时忽略处理
+            except:
+                continue
+            if host not in self.checked_host_list:
+                try:    
+                    requests.get(host, timeout=5, verify=False)
+                    host_list.append(host)
+                except Exception as e:
+                    print(e)
+                    continue
             else:
-                host = item.find('a').get('href')
-                if host not in self.checked_host_list:
-                    try:
-                        requests.get(host, timeout=5)
-                        host_list.append(host)
-                        self.checked_host_list.append(host)
-                    except:
-                        continue
-                else:
-                    pass
-        return
+                pass
+        return host_list
 
     def get_text(self, host):
         # 数据清洗
@@ -60,42 +66,49 @@ class Fofa(object):
                     for keywords in f.readlines():
                         v = v.replace(keywords.strip(), '')
                         headers[k] = v
+        self.check_list_info.append((host, text, headers, len(text)))
 
-        return text, headers
+        return 
 
     def get_ip_count(self, rule):
         qbase64 = base64.b64encode(rule.encode('utf-8'))
         url = 'https://fofa.so/result?qbase64=' + str(qbase64, 'utf-8')
-        resp = requests.get(url, headers=self.headers)
+        resp = requests.get(url, headers=self.headers, verify=False)
         try:
             count_str = re.search('获得 (.*) 条匹配结果', resp.text).group(1)
-        except:
+        except Exception as e:
             print('[-]Error: ' + url)
+            print(e)
             return 0
         count = int(count_str.replace(',', ''))
         return count
 
-    def is_sub_rule(self, sub_rule):
-        
-        # just test
-        # import random
-        # print('[+] Test rule: ' + sub_rule)
-        # return random.randint(0,1)
+    def is_sub_rule(self, sub_rule):        
+        if sub_rule not in self.checked_rule_list:          
+            
+            # just test
+            # import random
+            # print('[+] Test rule: ' + sub_rule)
+            # self.checked_rule_list.append(sub_rule)
+            # return random.randint(0,1)
 
-        print('[+] Test rule: ' + sub_rule)
-        count1 = self.get_ip_count(sub_rule)
-        time.sleep(random.randint(1,3))
-        if count1 > self.app_count:
-            return False
-        count2 = self.get_ip_count(sub_rule+'&&'+self.app)
-        time.sleep(random.randint(1,3))
-        print(count1)
-        print(count2)
-        if count1 != 0 and count1 == count2:
-            return True
+            print('[+] Test rule: ' + sub_rule)
+            self.checked_rule_list.append(sub_rule)
+            count1 = self.get_ip_count(sub_rule)
+            time.sleep(random.randint(1,3))
+            if count1 > self.app_count:
+                return False
+            count2 = self.get_ip_count(sub_rule+'&&'+self.app)
+            time.sleep(random.randint(1,3))
+            print(count1)
+            print(count2)
+            if count1 != 0 and count1 == count2:
+                return True
+            else:
+                return False
         else:
             return False
-    
+        
 
     def get_same_str(self, text1, text2, min_len=10, max_len=500):
         pos_list = []
@@ -167,20 +180,33 @@ class Fofa(object):
 
 
     def get_rule(self):
+        
+        # just test
+        # rule = self.app
+
         if self.rule_list:
             rule = '&&'.join(self.rule_list).replace('body=', 'body!=').replace('header=', 'header!=') + '&&'+self.app
         else:
             rule = self.app
         print('[+] Test: '+rule)
         host_list = self.get_host_list(rule)
-        print('[+] Test host: ' + host_list[0] + ',' + host_list[1])
-
+        print(host_list)
         # host_list = ['http://54.162.93.196:8080', 'http://78.26.140.52:2323'] # just test
+        pool = Pool(10)
+        pool.map(self.get_text, host_list)
+        self.check_list_info.sort(key=lambda x:x[3])
 
-        text1, headers1 = self.get_text(host_list[0])
-        text2, headers2 = self.get_text(host_list[1])
+        self.checked_host_list.append(self.check_list_info[0][0])
+        self.checked_host_list.append(self.check_list_info[1][0])
+        print(self.check_list_info[1][0])
+        print(self.check_list_info[0][0])
+        text1, headers1 = self.check_list_info[0][1], self.check_list_info[0][2]
+        text2, headers2 = self.check_list_info[1][1], self.check_list_info[1][2]
+
         self.check_header(headers1, headers2)
         self.check_body(text1, text2)
+        self.check_list_info = []
+
         if self.get_ip_count('||'.join(self.rule_list)) != self.app_count:
             self.get_rule()
         return self.rule_list
@@ -189,10 +215,7 @@ class Fofa(object):
         return self.get_rule()
 
 if __name__ == '__main__':
-    fofa = Fofa("app=\"zabbix\"")
+    fofa = Fofa("app=\"jenkins\"")
     fofa.start()
 
 
-
-# "测试过的ip白名单"
-# 

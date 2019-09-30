@@ -3,3 +3,5 @@ path=
 ;Path=/;HttpOnly
 nosniff
 JSESSIONID
+; /; secure
+Keep-Alive
