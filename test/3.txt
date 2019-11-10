@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="renderer" content="webkit">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>登录管理后台</title>
+<link href="/templates/login/2017/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/include/jQ.js"></script>
+<script type="text/javascript" src="/include/cookies.js"></script>
+<script type="text/javascript" src="/js/ev_popup/ev_popup.min.js?212320161229wer3"></script>
+<link href="/js/ev_popup/skin/black/skin.css?212320161229wer3" rel="stylesheet" />
+<script src="/templates/login/2017/js/fn_js.min.js" type="text/javascript"></script>
+<script src="/templates/login/2017/js/jquery.particleground.min.js" type="text/javascript"></script>
+</head>
+<body style="overflow: hidden">
+<div class="frame_register">
+    <div class="main_register">
+                    <div class="register_bg"><img width="100%" src="http://aimg8.dlszywz.com/login_background/pic/1/166_7082201492677378.jpg" /></div>
+            <div class="canvas_bg" id="canvasBg"></div>
+        
+        <!-----注册页面---->
+        <div class="logo_window">
+            <div class="logo">
+                            </div>
+            <div class="logo_window1">
+                <form name="userLoginActionForm" id="userLoginActionForm" method="POST" action="/login.php?t=1573298767" target="_parent">
+                <div class="logo_window_L" style="margin: 0 auto;float: inherit;">
+                    <span class="logo-form-title">用户登录</span>
+                     <div class="register_form2">
+                        <input class="user-name" id="username" name="username" type="text" value="用户名" maxlength="20" onfocus="userInter('F','username',this);"onblur="userInter('B','username',this)" />
+                        <label class="z-admin" id="manager_login"><input type="checkbox" name="is_manager" value="1" /> 子管理员登录 </label>
+                    </div>
+                    <div class="register_form2" style="position:relative;height:50px">
+                        <input class="user-pass" type="text" id="p_t" name="p_t" value="密码" onfocus="hide_pw()" style="z-index:2;position:absolute;" />
+                        <input class="user-pass" type="password" id="userpwd" name="userpwd" maxlength="32" onblur="check_pw();"  style="z-index:1;position:absolute;" />
+                    </div>
+                    <div class="register_form3">
+                        <input id="validatecode" name="validatecode"  type="text" placeholder="验证码" maxlength="6" onfocus="check_yzm(1)" onblur="check_yzm(2);"/>
+                        <a href="javaScript:getVcode2()" title="点击，换一张！"><img src="/include/captcha/captcha.php" id="vcodesrc" name="vcodesrc" border="0" width="100" height="40"  alt="点击，换一张！"  /></a>
+                    </div>
+                    <div class="no_pwd">
+                        <a href="/get_password_new.php" target="_blank" >忘记密码？</a>
+                    </div>
+                    <div class="button_a">
+                        <a href="###" class="login-btn" style="margin: 0 auto;display: block;" id="login_bt" name="login_bt" onclick="logincheck()">登录</a>
+                    </div>
+                </div>
+                    <input type="hidden"  id="is_cs" name="is_cs" value="0" />
+                    <input type="hidden"  id="is_get" name="is_get" value="1" />
+                    <input type="hidden"  id="show_msg" name="show_msg" value="" />
+                    <input type="hidden"  id="jz" name="jz" value="0" />
+                    <input type="hidden"  id="no_new" name="no_new" value="0" />
+                    <input type="hidden"  id="gobuy" name="gobuy" value="0" />
+                </form>
+                            </div>
+        </div>
+    </div>
+</div>
+<div class="windows_bg"></div>
+<script>
+    $(function () {
+        var canvasBg = $('#canvasBg');
+        if(canvasBg.length){
+            canvasBg.particleground({
+                dotColor: '#fff',
+                lineColor: '#f0f0f0'
+            });
+        }
+        $("#userLoginActionForm").submit(function () {
+            var sign = false;
+            $.ajax({
+                type: "POST",
+                url: "./check_login.php",
+                data: {
+                    username: $('input[name=username]').val(),
+                    is_manager: $("#manager_login input[type=checkbox]").prop("checked") ? 1 : 0,
+                    userpwd: $('input[name=userpwd]').val(),
+                    validatecode: $('input[name=validatecode]').val()
+                },
+                dataType: "json",
+                async: false,
+                error: function () {},
+                success: function (data) {
+                    if (!parseInt(data.error)) {
+                        sign = true;
+                    } else {
+                        sign = false;
+                        if (typeof data.message != "undefined" && data.message) {
+                            alert(data.message)
+                        }
+                    }
+                }
+            });
+            if (!sign) {
+                return false;
+            }
+        });
+    });
+    var loginerr='';
+    if(loginerr=="error"){
+        alert("用户或密码错误，请重新登陆！错误1次，超过5次当天将不能再登录！");
+        // window.location.href = history.go(-1);
+    }else if(loginerr=='validateerr'){
+        alert("验证码输入错误!");
+        // window.location.href = history.go(-1);
+    }else if(loginerr=='usererror'){
+        alert("您的账户已被冻结!");
+        // window.location.href = history.go(-1);
+    }else if(loginerr=='error_num'){
+	  alert("您的账户的密码输入错误已超过5次，账号今天将暂时冻结!");
+	}
+  </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>ÈçºÎÔÚWin10ÉÏÉèÖÃ×Ô¶¨ÒåÏÔÊ¾Ëõ·ÅÉèÖÃ - Win 10Ñ§Ôº - win10ÏµÍ³Ö®¼Ò</title>
+<meta name="keywords" content="Win10,Ëõ·ÅÉèÖÃWin10,Ëõ·ÅÉèÖÃ" />
+<meta name="description" content="ÈçºÎÔÚWin10ÉÏÉèÖÃ×Ô¶¨ÒåÏÔÊ¾Ëõ·ÅÉèÖÃ,Win10,Ëõ·ÅÉèÖÃ" />
+<link href="/skins/default/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="/skins/default/js.js" language="javascript" type="text/javascript"></script>
+</head>
+<body>
+<div id="head"><div class="nav"><span id="head_r"><a href="http://www.ghost580.com" target="_balnk">Ê×Ò³</a> ©ª
+               <a href="http://win10.ghost580.com/" target=¡°_blank¡± title="Win10ÏµÍ³Ö®¼Ò">Win10ÏµÍ³Ö®¼Ò</a> ©ª
+		<a href="http://www.ghost580.com/xp/" target=¡°_blank¡± title="xpÏµÍ³Ö®¼Ò">xpÏµÍ³ÏÂÔØ</a> ©ª
+		<a href="http://www.ghost580.com/windows7/"  target="_blank" title="win7ÏµÍ³ÏÂÔØ">win7ÏµÍ³ÏÂÔØ</a> ©ª
+		<a href="http://www.ghost580.net/article/" target="_blank" title="win10">½Ì³Ì×ÉÑ¯</a> ©ª<a href="http://www.ghost580.net/xiazai/os/win10/" target=¡°_blank" title="win10ÏµÍ³">win10ÏµÍ³</a></span><span id="head_l"><b>»¶Ó­ÄãµÄ¹âÁÙ£º<font color="#FF0000">win10ÏµÍ³ÏÂÔØÕ¾</font> - ÆÚ´ýÓëÄãÒ»Æð½»Á÷</b></div></div>
+
+<div id="main">
+<!-- ÍøÕ¾Ö÷Ìå ¿ªÊ¼ -->
+
+
+     <div class="top">
+         <div id="logo"><a href="http://www.ghost580.com" title="win10ÏµÍ³Ö®¼Ò">win10ÏµÍ³Ö®¼Ò</a></div>
+           <div id="banner"><script src="/d/js/acmsd/thea1.js"></script> <script src="/d/js/acmsd/thea2.js"></script> <script src="/d/js/acmsd/thea3.js"></script></div>
+     </div>
+     <div class="menu">
+          <li class="index"><a href="/">Ê×Ò³</a></li>
+          <li id="tabmenu1"><a href="/windows10/" title="win10ÏµÍ³"><span><b>win10ÏµÍ³</b></span></a></li><li id="tabmenu2"><a href="/windows8/" title="win8ÏµÍ³"><span><b>win8ÏµÍ³</b></span></a></li><li id="tabmenu3"><a href="/windows7/" title="win7ÏµÍ³"><span><b>win7ÏµÍ³</b></span></a></li><li id="tabmenu4"><a href="/xp/" title="xpÏµÍ³"><span><b>xpÏµÍ³</b></span></a></li><li id="tabmenu5"><a href="/zixun/" title="µçÄÔ×ÊÑ¶"><span><b>µçÄÔ×ÊÑ¶</b></span></a></li><li id="tabmenu6"><a href="/win10/" title="Win 10Ñ§Ôº"><span><b>Win 10Ñ§Ôº</b></span></a></li><li id="tabmenu7"><a href="/Mobile/" title="Windows Mobile"><span><b>Windows Mobile</b></span></a></li><li id="tabmenu8"><a href="/xtgj/" title="ÏµÍ³¹¤¾ß"><span><b>ÏµÍ³¹¤¾ß</b></span></a></li><li id="tabmenu9"><a href="/wlrj/" title="ÍøÂçÀà"><span><b>ÍøÂçÀà</b></span></a></li><li id="tabmenu10"><a href="/yyrj/" title="Ó¦ÓÃÈí¼þ"><span><b>Ó¦ÓÃÈí¼þ</b></span></a></li>
+     </div>
+     
+     <div class="search">
+          <div class="form">
+              <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+              <input type="hidden" name="show" value="title" />
+<input type="hidden" name="tempid" value="1" /><input type="hidden" name="tbname" value="download" />
+                    <p class="text"><input type="text" name="keyboard" /></p>
+                   <p class="submit"><input type="submit" value="ËÑË÷" /></p>
+               </form>
+          </div>
+          <div id="hotword"><b>ÈÈÃÅ±êÇ©£º<a href="http://win10.ghost580.com/win10_32/" target="_blank" title="win10ÏµÍ³ÏÂÔØ">win10 32Î»ÏµÍ³</a> <a href="http://win10.ghost580.com/win10_64/" target="_blank" title="win10ÏµÍ³ÏÂÔØ">win10 64Î»ÏµÍ³</a>  <a href="http://www.win10plus.com/soft/win10/" target="_blank" title="Win10Ö®¼ÒÏµÍ³">Win10Ö®¼ÒÏµÍ³</a> <a href="http://windows10.ghost580.com/news" target="_blank" title="windows10ÎÄÕÂ">windows10¿ìÑ¶</a> </b><a href='/e/search/result/?searchid=57' target=_blank>office</a>&nbsp;<a href='/e/search/result/?searchid=593' target=_blank>¼¤»î</a>&nbsp;<a href='/e/search/result/?searchid=2600' target=_blank>win10¼¤»î</a>&nbsp;<a href='/e/search/result/?searchid=18' target=_blank>´¿¾»°æ</a>&nbsp;<a href='/e/search/result/?searchid=2' target=_blank>´¿¾»</a>&nbsp;<a href='/e/search/result/?searchid=1229' target=_blank>win10</a><br></div>
+     </div>
+     
+     <div id="ad_1"><script src="/d/js/acmsd/thea4.js"></script>
+<script src="/d/js/acmsd/thea5.js"></script></div>
+
+    <div class="local"><span><b>Äúµ±Ç°µÄÎ»ÖÃ£º</b><a href="/">Ê×Ò³</a>&nbsp;>&nbsp;<a href="/win10/">Win 10Ñ§Ôº</a></span><span class="r"><a href="/newlist-z/" title="×î½ü¸üÐÂ">×î½ü¸üÐÂ</a> 
+</span></div>
+
+    <div class="block">
+         <div class="tit"><h1>ÈçºÎÔÚWin10ÉÏÉèÖÃ×Ô¶¨ÒåÏÔÊ¾Ëõ·ÅÉèÖÃ</h1></div>  ¹Ø×¢Windows10£¬Ëø¶¨Win10Ö®¼Ò£¨http://www.ghost580.com/windows10/£©
+</div>
+    <div class="block">
+         <div class="tit"><h2>ÈçºÎÔÚWin10ÉÏÉèÖÃ×Ô¶¨ÒåÏÔÊ¾Ëõ·ÅÉèÖÃ ¼ò½é</h2></div>
+      <div class="content"><p>&nbsp;<span style="color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</span><img src="/d/file/win10/2019-08-14/df77e45a95977f9a8769a72e5e06bfd2.jpg" alt="ÈçºÎÔÚWin10ÉÏÉèÖÃ×Ô¶¨ÒåÏÔÊ¾Ëõ·ÅÉèÖÃ" width="640" height="480" style="color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif; border-width: 0px; vertical-align: top;" /></p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">¾ÍÆä±¾Éí¶øÑÔ£¬<a href="http://www.ghost580.com/" style="padding: 0px; margin: 0px; outline-style: none; color: rgb(51, 51, 51); text-decoration-line: none;">Win10</a>¿ÉÒÔºÜºÃµØ¸ù¾Ý¸÷ÖÖÒòËØ£¨ÈçÆÁÄ»´óÐ¡ºÍ·Ö±æÂÊ£©¼ì²âºÍµ÷ÕûÏÔÊ¾Ëõ·ÅÉèÖÃ£¬ÒÔÈ·±£ÆÁÄ»ÉÏµÄÔªËØ£¨ÎÄ±¾£¬Í¼±ê£¬µ¼º½ºÍÆäËûÏîÄ¿£©ºÜ´ó×ãÒÔÈÃÓ¦ÓÃ³ÌÐò¸üÒ×ÓÚÊ¹ÓÃ¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">µ«ÊÇ£¬Ëü²»ÊÇÒ»¸öÍêÃÀµÄÏµÍ³£¬Òò´Ë£¬<a href="http://www.ghost580.com/" style="padding: 0px; margin: 0px; outline-style: none; color: rgb(51, 51, 51); text-decoration-line: none;">Win10</a>»¹ÔÊÐíÄúÔÚÃ¿¸ö¼àÊÓÆ÷µÄ»ù´¡ÉÏÊÖ¶¯µ÷ÕûËõ·ÅÉèÖÃ£¬ÕâÔÚÐí¶àÇé¿öÏÂ¶¼¿ÉÒÔÅÉÉÏÓÃ³¡¡£ÀýÈç£¬Èç¹ûÒª½«Éè±¸Óë²»Í¬´óÐ¡µÄÍâ²¿¼àÊÓÆ÷Åä¶Ô£¬ÔòÖ¸¶¨×Ô¶¨ÒåËõ·ÅÖµÓÐÖúÓÚÆ¥ÅäËùÓÐ¼àÊÓÆ÷ÉÏµÄÎÄ±¾ºÍÔªËØµÄ´óÐ¡¡£Èç¹ûÄãÃ»ÓÐÍêÃÀµÄÊÓÁ¦£¬Ëõ·Å¿ÉÒÔÔö¼ÓÔªËØµÄ´óÐ¡£¬Ê¹Ò»ÇÐ¸üÈÝÒ×¿´µ½ºÍÊ¹ÓÃ£¬¶ø²»»áÇ¿ÆÈÄãµÄÑÛ¾¦¡£»òÕß£¬µ±Í¶Ó°µ½¸ü´óµÄÆÁÄ»Ê±£¬µ÷ÕûËõ·ÅÉèÖÃ»¹¿ÉÒÔ¸ÄÉÆ¶ÔÑÝÊ¾µÄ¹Û¿´¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">ÔÚ´Ë<a href="http://www.ghost580.com/" style="padding: 0px; margin: 0px; outline-style: none; color: rgb(51, 51, 51); text-decoration-line: none;">Win10</a>Ö¸ÄÏÖÐ£¬ÎÒÃÇ½«Òýµ¼ÄúÍê³É¸ü¸Ä¶ÀÁ¢ÏÔÊ¾Æ÷»ò±Ê¼Ç±¾µçÄÔÏÔÊ¾Æ÷µÄËõ·ÅÉèÖÃµÄ²½Öè¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">ÈçºÎÊ¹ÓÃ½¨ÒéÖµ¸ü¸ÄÏÔÊ¾Ëõ·ÅÉèÖÃ</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">ÒªÊ¹ÓÃ½¨ÒéµÄÉèÖÃ¸ü¸ÄÏÔÊ¾Ëõ·Å´óÐ¡£¬ÇëÊ¹ÓÃÒÔÏÂ²½Öè£º</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--´ò¿ªÉèÖÃ¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--µ¥»÷&ldquo;ÏµÍ³&rdquo;¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--µ¥»÷&ldquo;ÏÔÊ¾&rdquo;¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--ÔÚ&ldquo;±ÈÀýºÍ²¼¾Ö&rdquo;²¿·ÖÏÂ£¬Ê¹ÓÃÏÂÀ­²Ëµ¥Ñ¡ÔñÊÊºÏÄúÐèÒªµÄ±ÈÀýÉèÖÃ¡£ ¿ÉÓÃÑ¡Ïî°üÀ¨100£¥£¬125£¥£¬150£¥ºÍ175£¥¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;"><img src="/d/file/win10/2019-08-14/424ec0a883d9285cef6774cf1166411d.jpg" alt="ÈçºÎÔÚWin10ÉÏÉèÖÃ×Ô¶¨ÒåÏÔÊ¾Ëõ·ÅÉèÖÃ" width="640" height="434" style="border-width: 0px; vertical-align: top;" /></p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">Íê³ÉÕâÐ©²½Öèºó£¬ÄúÎÞÐèÍË³ö²¢ÖØÐÂµÇÂ¼£¬µ«½¨ÒéÄúÖØÐÂÆô¶¯¼ÆËã»ú£¬ÒÔÈ·±£ÐÂÉèÖÃÔÚ×ÀÃæºÍÓ¦ÓÃÖÐÕýÈ·Ó¦ÓÃ¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">ÈçºÎÊ¹ÓÃ×Ô¶¨ÒåÖµ¸ü¸ÄÏÔÊ¾Ëõ·ÅÉèÖÃ</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">Èç¹û½¨ÒéµÄËõ·ÅÉèÖÃ²»ÊÊºÏÄúµÄÏÔÊ¾£¬Ôò¿ÉÒÔÖ¸¶¨×Ô¶¨ÒåËõ·Å´óÐ¡¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">ÒªÉèÖÃ×Ô¶¨Òå´óÐ¡ÒÔÔÚWindows 10ÉÏËõ·ÅÏÔÊ¾£¬ÇëÊ¹ÓÃÒÔÏÂ²½Öè£º</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--´ò¿ªÉèÖÃ¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--µ¥»÷&ldquo;ÏµÍ³&rdquo;¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--µ¥»÷&ldquo;ÏÔÊ¾&rdquo;¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--ÔÚ&ldquo;±ÈÀýºÍ²¼¾Ö&rdquo;²¿·ÖÏÂ£¬µ¥»÷&ldquo;¸ß¼¶Ëõ·ÅÉèÖÃ&rdquo;Ñ¡Ïî¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;"><img src="/d/file/win10/2019-08-14/f5c3fcf60e340747cebcf4284f6f615a.jpg" alt="windows-10-advanced-scaling-settings-option.jpg" width="640" height="426" style="border-width: 0px; vertical-align: top;" /></p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--ÔÚ&ldquo;×Ô¶¨ÒåËõ·Å&rdquo;²¿·ÖÏÂ£¬Ö¸¶¨100µ½500£¥Ö®¼äµÄ×Ô¶¨ÒåËõ·Å´óÐ¡¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;"><img src="/d/file/win10/2019-08-14/fec25594179012e6769db248719df411.jpg" alt="ÈçºÎÔÚWin10ÉÏÉèÖÃ×Ô¶¨ÒåÏÔÊ¾Ëõ·ÅÉèÖÃ" width="640" height="426" style="border-width: 0px; vertical-align: top;" /></p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--µ¥»÷&ldquo;Ó¦ÓÃ&rdquo;°´Å¥¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--µ¥»÷Á¢¼´ÍË³ö°´Å¥¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">--ÖØÐÂµÇÂ¼ÄúµÄÕÊ»§¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">Íê³ÉÕâÐ©²½Öèºó£¬ÎÄ±¾£¬Ó¦ÓÃ³ÌÐòºÍÆäËûÏîÄ¿Ó¦Ëõ·Åµ½ÄúÖ¸¶¨µÄ´óÐ¡¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">Èç¹ûÍ¼±êºÍÆäËûÏîÄ¿ÔÚ×ÀÃæÉÏÎÞ·¨ÕýÈ·Ëõ·Å£¬ÇëÊ¹ÓÃÉÏÃæÁÐ³öµÄÏàÍ¬ËµÃ÷ÉÔÎ¢Ôö¼Ó»ò¼õÉÙËõ·Å³ß´ç±àºÅ£¬Ö±µ½ÕÒµ½ÕýÈ·µÄÆ½ºâ¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">Äú¿ÉÒÔËæÊ±Ê¹ÓÃÕâÐ©²½ÖèÉ¾³ý×Ô¶¨Òå´óÐ¡£¬µ«ÔÚµÚ4²½ÖÐ£¬µ¥»÷&ldquo;¹Ø±Õ×Ô¶¨ÒåËõ·ÅºÍ×¢Ïú&rdquo;Ñ¡Ïî¡£</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p>
+<p style="padding: 0px; margin: 0px; color: rgb(51, 51, 51); font-family: Tahoma, Helvetica, Arial, sans-serif;">&nbsp;</p></p>
+<div>&nbsp;</div><br><b>¹Ø×¢<a href="http://www.ghost580.com/" target="_blank">win10</a>,Windows10£¬Ëø¶¨<a href="http://www.ghost580.com/windows10/" target="_blank"><font color="#FF0000">£¨http://www.ghost580.com/windows10/£©</font></a>¡¢<a href="http://www.ghost580.com/" target="_blank"><font color="#FF0000">Win10Ö®¼Ò¹ÙÍø</font></a></b></div>    
+    </div>
+    
+    <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2051785"></script>
+<!-- UY END -->
+    <div class="nextlink">
+         <ul>
+         <li><b><span>ÉÏ¸öÈí¼þ£º</span></b><a href='/win10/2019-08-13/28732.html'>ÈçºÎ¸ü¸ÄWin10°²×°Ó¦ÓÃ³ÌÐòµÄÄ¬ÈÏÎÄ¼þ¼Ð</a></li>
+         <li><b><span>ÏÂ¸öÈí¼þ£º</span></b><a href='/win10/2019-08-14/28737.html'>Î¢ÈíÔÚWin10 CalculatorÓ¦ÓÃ³ÌÐòÖÐÍÆ³öÁË¡°Always-on-Top Mode¡±¹¦ÄÜ</a></li>
+         </ul>
+    </div>
+
+    <div class="block">
+         <div class="tit"><strong>ÔÞÖúÉÌ¹ã¸æ</strong></div>
+         <div class="ad_sinfo"><script src="/d/js/acmsd/thea7.js"></script></div>
+    </div>
+    
+    
+    
+    <div class="block" style=" float:left; width:632px; margin-right:10px;">
+         <div class="tit"><strong>ÏÂÔØËµÃ÷</strong></div>
+         <div class="downother">
+              <ul>
+              <li>* ±£Ö¤Õ¾ÄÚÌá¹©µÄËùÓÐ¿ÉÏÂÔØ×ÊÔ´£¨Èí¼þµÈµÈ£©¶¼ÊÇ°´<font color="#ff0000">¡°Ô­Ñù¡±</font>Ìá¹©£¬±¾Õ¾Î´×ö¹ýÈÎºÎ¸Ä¶¯¡£</li>
+              <li>* ËùÓÐÈí¼þºÍ×ÊÁÏ¾ùÎªÈí¼þ×÷ÕßÌá¹©ºÍÍøÓÑÍÆ¼öÊÕ¼¯ÕûÀí¶øÀ´£¬½ö¹©Ñ§Ï°ºÍÑÐ¾¿Ê¹ÓÃ¡£</li>
+              <li>* ±¾Õ¾¶ÔÌá¹©ÏÂÔØµÄÈí¼þµÈ²»ÓµÓÐÈÎºÎÈ¨Àû£¬Æä°æÈ¨¹é¸ÃÏÂÔØ×ÊÔ´µÄºÏ·¨ÓµÓÐÕßËùÓÐ¡£</li>
+              <li>* ±¾ÍøÕ¾²»±£Ö¤±¾Õ¾Ìá¹©µÄÏÂÔØ×ÊÔ´µÄ×¼È·ÐÔ¡¢°²È«ÐÔºÍÍêÕûÐÔ£¬Ôì³ÉµÄËðÊ§×ÔÐÐ¸ºÔð¡£</li>
+              <li>* Èç¹ûÄã·¢ÏÖÈí¼þÓë×÷ÕßÊµ¼Ê½éÉÜ²»·ûÇëÁªÏµÎÒÃÇ¾Ù±¨ÓÊÏä! ÎÒÃÇÖÔÐÄµÄ¸ÐÐ»´ó¼Ò¶àÄêÀ´¶ÔÎÒÃÇµÄÖ§³Ö</li>
+              <li>* ÎªÁË´ïµ½×î¿ìµÄÏÂÔØËÙ¶È£¬ÍÆ¼öÊ¹ÓÃÍø¼Ê¿ì³µ»òÑ¸À×ÏÂÔØ±¾Õ¾Èí¼þ¡£</li>
+              <li>* ÇëÒ»¶¨Éý¼¶µ½×îÐÂ°æWinRAR²ÅÄÜÕý³£½âÑ¹±¾Õ¾Ìá¹©µÄÈí¼þ! </li>    
+              <li>* Èç¹ûÄú·¢ÏÖÏÂÔØÁ´½Ó´íÎó£¬ÇëÁªÏµ2244754354@qq.com±¨¸æ´íÎó</a>Ð»Ð»£¡ </li>
+              <li>* ÌØ±ðÌáÐÑ:×¢ÒâÉÏµ±ÊÜÆ­´ó¼ÒÔÚ½»Ò×µÄÊ±ºòÇëÐ¡ÐÄÃâµÃ±»Ð¡ÈËËùÆ­¡£</li>
+              <li>* Õ¾ÄÚÌá¹©µÄËùÓÐÈí¼þ°üº¬ÆÆ½â¼°×¢²áÂë¾ùÊÇÓÉÍøÉÏËÑ¼¯£¬ÈôÇÖ·¸ÁËÄãµÄ°æÈ¨ÀûÒæ£¬¾´ÇëÀ´ÐÅÍ¨ÖªÎÒÃÇ!2244754354@qq.com</li>
+              </ul>
+         </div>
+    </div>
+    
+    
+    
+    <div class="block" style=" float:left; width:310px;">
+         <div class="tit"><div class="huadong"><span class="show" id="tit_2_1" onMouseOver="GetsList(2,1,2)">Ïà¹ØÈí¼þ</span><span id="tit_2_2" onMouseOver="GetsList(2,2,2)">ÈÈÃÅÈí¼þ</span></div></div>
+              <div class="list num"> 
+                  <ul id="list_2_1">
+                                          <li class="h"><em class="oldDate">10-21</em><span>1</span><a href="/win10/2016-10-21/17295.html" title="ÔõÑùÓÀ¾Ã¹Ø±ÕWin10×Ô¶¯¸üÐÂ_win10¹ÙÍø">ÔõÑùÓÀ¾Ã¹Ø±ÕWin10×Ô¶¯¸üÐÂ_win1...</a></li>
+                        <li class="h"><em class="oldDate">07-29</em><span>2</span><a href="/windows10/win10/12273.html" title="Windows10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨Òµ°æ">Windows10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨Òµ...</a></li>
+                        <li class="h"><em class="oldDate">09-24</em><span>3</span><a href="/windows10/win10/13111.html" title="Ghost Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»×¨Òµ°æ(9ÔÂÐÂ°æ)">Ghost Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»×¨...</a></li>
+                        <li><em class="oldDate">08-25</em><span>4</span><a href="/windows10/win10/12596.html" title="Windows 10ÕýÊ½°æ64Î»¹Ù·½Ô­°æGHOST¾µÏñ">Windows 10ÕýÊ½°æ64Î»¹Ù·½Ô­°æGH...</a></li>
+                        <li><em class="oldDate">07-29</em><span>5</span><a href="/windows10/win10/12276.html" title="GHOST Win10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨Òµ°æ">GHOST Win10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨...</a></li>
+                        <li><em class="oldDate">08-25</em><span>6</span><a href="/windows10/win10/12591.html" title="Win10ÕýÊ½°æ64Î»¹Ù·½°²×°°æ¾µÏñ">Win10ÕýÊ½°æ64Î»¹Ù·½°²×°°æ¾µÏñ</a></li>
+                        <li><em class="oldDate">12-15</em><span>7</span><a href="/windows10/dngs/9311.html" title="µçÄÔ¹«Ë¾ GHOST WIN10 X86 Æì½¢ÌØ±ð°æ V2015£¨32Î»£©">µçÄÔ¹«Ë¾ GHOST WIN10 X86 Æì½¢ÌØ...</a></li>
+                        <li><em class="oldDate">09-24</em><span>8</span><a href="/windows10/win10/13110.html" title="Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»°²×°×¨Òµ°æ(9ÔÂÐÂ°æ)">Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»°²×°×¨Òµ...</a></li>
+                        <li><em class="oldDate">09-30</em><span>9</span><a href="/windows8/win8xitong/2014-09-30/8426.html" title="ÏµÍ³Ö®¼ÒWin8.1 X64 Pro XT1410×°»ú°æ">ÏµÍ³Ö®¼ÒWin8.1 X64 Pro XT1410×°...</a></li>
+                        <li><em class="oldDate">01-15</em><span>10</span><a href="/windows7/xtzjwin7/2017-01-15/18479.html" title="ÏµÍ³Ö®¼ÒGhost Win7 X64 SP1×°»ú°æV2017.1">ÏµÍ³Ö®¼ÒGhost Win7 X64 SP1×°»ú...</a></li>
+</ul>
+                  
+                  <ul id="list_2_2" style="display:none;">
+                                          <li class="h"><em class="oldDate">10-21</em><span>1</span><a href="/win10/2016-10-21/17295.html" title="ÔõÑùÓÀ¾Ã¹Ø±ÕWin10×Ô¶¯¸üÐÂ_win10¹ÙÍø">ÔõÑùÓÀ¾Ã¹Ø±ÕWin10×Ô¶¯¸üÐÂ_win1...</a></li>
+                        <li class="h"><em class="oldDate">07-29</em><span>2</span><a href="/windows10/win10/12273.html" title="Windows10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨Òµ°æ">Windows10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨Òµ...</a></li>
+                        <li class="h"><em class="oldDate">09-24</em><span>3</span><a href="/windows10/win10/13111.html" title="Ghost Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»×¨Òµ°æ(9ÔÂÐÂ°æ)">Ghost Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»×¨...</a></li>
+                        <li><em class="oldDate">08-25</em><span>4</span><a href="/windows10/win10/12596.html" title="Windows 10ÕýÊ½°æ64Î»¹Ù·½Ô­°æGHOST¾µÏñ">Windows 10ÕýÊ½°æ64Î»¹Ù·½Ô­°æGH...</a></li>
+                        <li><em class="oldDate">07-29</em><span>5</span><a href="/windows10/win10/12276.html" title="GHOST Win10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨Òµ°æ">GHOST Win10ÕýÊ½°æ64Î»¼òÌåÖÐÎÄ×¨...</a></li>
+                        <li><em class="oldDate">08-25</em><span>6</span><a href="/windows10/win10/12591.html" title="Win10ÕýÊ½°æ64Î»¹Ù·½°²×°°æ¾µÏñ">Win10ÕýÊ½°æ64Î»¹Ù·½°²×°°æ¾µÏñ</a></li>
+                        <li><em class="oldDate">12-15</em><span>7</span><a href="/windows10/dngs/9311.html" title="µçÄÔ¹«Ë¾ GHOST WIN10 X86 Æì½¢ÌØ±ð°æ V2015£¨32Î»£©">µçÄÔ¹«Ë¾ GHOST WIN10 X86 Æì½¢ÌØ...</a></li>
+                        <li><em class="oldDate">09-24</em><span>8</span><a href="/windows10/win10/13110.html" title="Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»°²×°×¨Òµ°æ(9ÔÂÐÂ°æ)">Win10ÕýÊ½°æ¼òÌåÖÐÎÄ64Î»°²×°×¨Òµ...</a></li>
+                        <li><em class="oldDate">09-30</em><span>9</span><a href="/windows8/win8xitong/2014-09-30/8426.html" title="ÏµÍ³Ö®¼ÒWin8.1 X64 Pro XT1410×°»ú°æ">ÏµÍ³Ö®¼ÒWin8.1 X64 Pro XT1410×°...</a></li>
+                        <li><em class="oldDate">01-15</em><span>10</span><a href="/windows7/xtzjwin7/2017-01-15/18479.html" title="ÏµÍ³Ö®¼ÒGhost Win7 X64 SP1×°»ú°æV2017.1">ÏµÍ³Ö®¼ÒGhost Win7 X64 SP1×°»ú...</a></li>
+</ul>
+              </div>
+    </div>
+
+ <div id="bottom">
+<div align="center"><div class="copyright">Copyright &copy; 2008-2016 <a href="http://www.ghost580.com" target="_blank"><font face="Verdana, Arial, Helvetica, sans-serif"><b>ghost580<font color="#CC0000">.COM</font></b></font></a>. All Rights Reserved .<a href="http://www.ghost580.com" ><b>win10ÏµÍ³Ö®¼Ò</b></a>Ìá¹©<a href="http://www.ghost580.com/xp/" target="_blank"><b>xpÏµÍ³ÏÂÔØ</b>¡¢</a><a href="http://www.ghost580.com/windows7/" target="_blank"><b>win7ÏµÍ³ÏÂÔØ</b></a>¡¢×îÐÂ<a href="http://windows10.ghost580.com/windows10" target="_blank"><b>Windows10</b></a>£¬Ã¿Ìì·á¸»¶à²ÊµÄÈí¼þ¸øÄã´øÀ´²»Ò»ÑùµÄ¸ÐÊÜ£¡£¡<br>
+<div align="center">ÁªÏµ£ºhuoren1234569@gmail.com </a> | ±¾Õ¾ÎÂÜ°ÌáÊ¾£º±¾Õ¾·¢²¼µÄÏµÍ³ÓëÈí¼þ½öÎª¸öÈËÑ§Ï°²âÊÔÊ¹ÓÃ£¬ÇëÔÚÏÂÔØºó24Ð¡Ê±ÄÚÉ¾³ý£¬²»µÃÓÃÓÚÈÎºÎÉÌÒµÓÃÍ¾£¬·ñÔòºó¹û×Ô¸º£¬±¾Õ¾³öÊÛ£¬ÓÐÒâÕßÇëºÏÀí´ø¼Û×ÉÑ¯£¬ÓÊ¼þ2ÌìÄÚ»Ø¸´£¡
+
+<a href="http://www.ghost580.com/about.htm" target="_blank"><b>¹ØÓÚÎÒÃÇ</b></a> |
+<a href="http://www.ghost580.com/xp/" target="_blank"><b>xpÏµÍ³ÏÂÔØ</b></a> | 
+<a href="http://www.ghost580.com/windows8/" target="_blank"><b>win8ÏµÍ³ÏÂÔØ</b></a> | 
+<a href="http://www.ghost580.com/windows7/" target="_blank"><b>win7ÏµÍ³ÏÂÔØ</b></a> | 
+<a href="http://www.ghost580.com/windows10/" target="_blank"><b>win10ÏµÍ³ÏÂÔØ</b></a> | 
+<a href="http://www.ghost580.com/zixun/" target="_blank"><b>win10×ÊÑ¶</b></a> | 
+<a href="/index.php">ÍøÕ¾µØÍ¼</a> | <div style="display:none"><script src="/js/t.js"></script></div><div style="display:none"><script src="/js/ts.js"></script></div>
+
+
+</div>
+</div>
+</div></div>
+
+
+ </body></html>
+
+<script src='/e/public/onclick?enews=donews&classid=149&id=28736'></script>

@@ -1,0 +1,183 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="renderer" content="webkit" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+
+<title>µÇÂ¼ - Ñ§Éú¿Õ¼ä</title><link rel="stylesheet" media="print" href="/member/images/Print_Styles.css" type="text/css">
+<link rel="stylesheet" media="screen" href="/member/images/Screen_Styles.css" type="text/css">
+<script type="text/javascript" src="/application/js/jqmin.js"></script>
+<script type="text/javascript" src="http://sysmanage.cmr.com.cn/js/CommonDefine.cmrGb2312.js"></script>
+<script  src="/application/js/main.js" language="javascript" type="text/javascript"></script>
+<script  LANGUAGE="javascript">
+var refurl=''; 
+$(document).ready(function(){			
+	//forminit();
+	$("#btnLogin").click(function(){
+		login();
+	});
+	$("#oldLogin").click(function(){
+		//login('old');
+		location.replace('http://manage.cmr.com.cn/default.asp');
+	});
+	$('#loginform').submit(function(){
+		return false;
+	});
+	$("body").bind('keyup',function(event) {  
+  		if(event.keyCode==13){  
+   		login(1);  
+   	 }     
+    });  
+	$("#pcode").click(function(e){
+		changeimg();
+		e.preventDefault();	
+	});
+	$("#pcode1").click(function(e){
+		changeimg();
+		e.preventDefault();			
+	});
+	$("#Userid").focus();
+})
+function login(){
+	$(".help").html("ÕýÔÚµÇÂ¼¡­¡­");
+		var Userid=$("#Userid").val();
+		var Password=$("#Password").val();
+		var Passcode=$("#passcode").val();
+		var loginfrom=$("#loginfrom").val();
+		if(Userid==""){
+			$(".help").html("<font color=red>ÇëÊäÈëÓÃ»§Ãû</font>");
+			changeimg();
+		}
+		else if(Password==""){
+			$(".help").html("<font color=red>ÃÜÂë²»ÄÜÎª¿Õ</font>");
+			changeimg();
+		}
+		else if(Passcode==""){
+			$(".help").html("<font color=red>ÑéÖ¤Âë²»ÄÜÎª¿Õ</font>");
+			changeimg();
+		}else{
+			s="";
+			if(document.loginform.saveuserid.checked==true) s=$("#saveuserid").val();
+			checklogin(Userid,Password,Passcode,s,loginfrom);
+		}
+}
+function checklogin(u,p,v,s,f){
+	 urlstr='/member/checklogin.asp';
+	 PTurlstr='/application/index.asp';
+	 if (refurl!=''){
+	 	PTurlstr=refurl;
+	 }
+	$.ajax({
+			url:urlstr,
+			type:'POST',
+			async:true,
+			data:{userid:u,password:p,passcode:v,saveuserid:s,loginfrom:f},
+			success:function(str){
+				if(/#redirect#/i.test(str)){
+				    getcookiephp(str,1,f);
+					return;
+				};
+				if(/\[loginok\]/i.test(str)){
+				    getcookiephp(str,2,f);
+					return;
+				};
+				$(".help").html("<font color=red>µÇÂ¼Ê§°Ü:"+str+"</font>");				
+			},		
+			error:function(o,t,e){$(".help").html("<font color=red>µÇÂ¼Ê§°Ü:"+t+e+"</font>");}
+	})	
+}
+function changeimg()
+{
+	document.getElementById('vfcode').src = '/member/SW_Code.asp?aid=23000101&f=html&ck=1&t=' + timestamp();
+	document.getElementById('passcode').focus();
+}	
+function getcookiephp(str,n,f){
+    var xuank='/lp/userinfo/xueji/registerXj.php';
+	$.ajax({
+		url:authSysDomain+"/public/Oauth",
+		type:'get',
+		dataType:'jsonp',
+		async:true,
+		data:{pid:'cmr',mode:'c',u:'f',redirect:''},
+		jsonp:'callback',
+		success:function(){
+		    if(n==1){
+                 location.replace(str.replace(/#redirect#/i,''));					
+				 return;			    
+			}
+		    if(n==2){
+				if(/\[weizhuce\]/i.test(str)){
+				     location.replace(xuank);
+				 }else{
+				     if(f != ""){
+					    location.replace(f);
+					 }else{
+				     	location.replace(PTurlstr);
+					 }
+				 }	
+				 return;			    
+			}			
+		},
+		error: function(){}
+	})
+}		
+</script>
+</head>
+<body>
+    <form id="loginform" name="loginform" method="post" action="checklogin.asp" > 
+		<input type="hidden" name="loginfrom" id="loginfrom" value="" />   
+        <div class="top_title"></div>
+		<div id="ContainerSADiv">
+        <div class="login_right">
+    <div class="pagetitlesystem">ÓÃ»§µÇÂ¼<a class="phonelogin" href="member/Forgetpwd/forgetpassword.asp?t=1">¶ÌÐÅ¿ì½ÝµÇÂ¼</a></div>    
+			<div class="help">ÇëÊäÈëÓÃ»§ÃûºÍÃÜÂë£¬ µÇÂ¼</div>
+            <table>
+                <tbody><tr>
+                    <td><p style="text-align: right;">ÓÃ»§Ãû</p></td>
+                    <td><input  name="Userid" id="Userid" title="ÔÚÕâÀï¼üÈëÄúµÄÓÃ»§Ãû" style="width: 160px;" type="text" value=""></td>
+                </tr> 
+                <tr>
+                    <td><p style="text-align: right;">
+                        ÃÜ&nbsp;&nbsp;Âë</p></td>
+                    <td><input  name="Password" id="Password" title="ÔÚÕâÀï¼üÈëÄúµÄÃÜÂë" style="width: 160px;" type="password"></td>
+                </tr>
+				<tr>
+                    <td><p style="text-align: right;">
+						ÑéÖ¤Âë</p></td>
+					<td><input name="passcode" type=text id=passcode size="4" maxlength="4" style="width: 70px;">&nbsp;
+					<a id="pcode" title="µã»÷»»Ò»ÕÅ"><img id="vfcode" src="/member/SW_Code.asp" style="vertical-align:bottom; cursor:pointer"></a>					</td>
+				</tr>
+				<!--<tr>
+					<td></td>
+					<td><a id="pcode1" style="line-height:14px; float:right;cursor:pointer">¿´²»Çå³þ£¿»»Ò»ÕÅ</a></td>
+				</tr>	 -->
+				<tr>
+					<td></td>
+					<td><div class="remember"><input type="checkbox" style="border:none"  id="saveuserid" name="saveuserid" value="1"  />¼Ç×¡ÓÃ»§Ãû</div><div class="forgetpassword"><a href="member/Forgetpwd/forgetpassword.asp?t=2">Íü¼ÇÃÜÂë</a></div></td>
+				</tr>	
+				
+                <tr>
+                    <td style="height: 24px;">&nbsp;</td>
+                    <td >
+                    <div class="button_border">
+                        <input name="btnLogin" value="µÇÂ¼" id="btnLogin" title="µã»÷µÇÂ¼" type="button" class="btnLogin">					
+                        </div>
+					<br><a href="LoginIE8.asp" target="_self">IE8°æÑ§Ï°¿Î³Ì</a>                    </td>
+                </tr>        
+            </tbody></table>
+       <div id="HeaderSADiv">
+            <div style="float: left;line-height: 18px;margin-top: 10px;">ÍÆ¼ö£º360¼«ËÙä¯ÀÀÆ÷(9.0¼°ÒÔÉÏ°æ±¾)<br />ÍÆ¼ö·Ö±æÂÊ£º<span>1280*1024</span>»ò¸ü¸ßµÄ·Ö±æÂÊ¡£<br />µ±Ç°°æ±¾£ºVersion 1.0 beta</div>
+        </div> 
+    <br>
+</div>
+		</div>
+		<div id="FooterSADiv">
+        </div>
+        <div class="site_info">ÖÐ¹úÈËÃñ´óÑ§ÍøÂç½ÌÓýÑ§Ôº °æÈ¨ËùÓÐ ±±¾©ÊÐ¹«°²¾Öº£µí·Ö¾Ö±¸°¸±àºÅ£º1101083677<br />Copyright &copy; 2001¡ª2011 cmr.com.cn Inc.All rights reserved
+</div>
+
+</form>
+</body></html>

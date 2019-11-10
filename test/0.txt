@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Log In - Private Seafile</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="File Collaboration Team Organization" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<link rel="shortcut icon" href="/media/img/favicon.ico" />
+
+<link rel="stylesheet" type="text/css" href="/media/css/seafile-ui.css" />
+
+<link rel="stylesheet" type="text/css" href="/media/css/jstree_default_theme/style.min.css" />
+<link rel="stylesheet" type="text/css" href="/media/assets/css/magnific-popup.656241b2c8ed.css" />
+<link rel="stylesheet" type="text/css" href="/media/css/seahub.min.css?t=1564023613" />
+<link rel="stylesheet" type="text/css" href="/media/css/sf_font3/iconfont.css" />
+
+<style type="text/css">
+html, body, #wrapper { height:100%; }
+#wrapper {
+    background: url('/media/custom/login-bg.jpg') center top no-repeat scroll;
+    background-size: cover;
+    padding-top:1px;
+}
+#lang {
+    margin:0;
+}
+#lang-context {
+    font-weight:normal;
+}
+#lang-context-selector {
+    text-align:left;
+}
+</style>
+
+ 
+
+</head>
+
+<body>
+    <div id="wrapper" class="en d-flex fd-col h100">
+        
+        
+        
+
+        <div id="header" class="hide">
+            <a href="/" id="logo">
+                
+                <img src="/media/img/seafile-logo.png" title="Private Seafile" alt="logo" width="" height="32" />
+                
+            </a>
+            <span class="sf2-icon-menu side-nav-toggle hidden-md-up hide" title="Side Nav Menu" id="js-toggle-side-nav" aria-label="Side Nav Menu"></span>
+
+            
+             
+            <div id="lang">
+                <a href="#" id="lang-context" data-lang="en">English <span class="icon-caret-down"></span></a>
+                <div id="lang-context-selector" class="sf-popover hide">
+                    <ul class="sf-popover-con">
+                        
+                        <li><a href="/i18n/?lang=ca">Català</a></li>
+                        
+                        <li><a href="/i18n/?lang=cs">Čeština</a></li>
+                        
+                        <li><a href="/i18n/?lang=de">Deutsch</a></li>
+                        
+                        <li><a href="/i18n/?lang=en">English</a></li>
+                        
+                        <li><a href="/i18n/?lang=es">Español</a></li>
+                        
+                        <li><a href="/i18n/?lang=es-ar">Español de Argentina</a></li>
+                        
+                        <li><a href="/i18n/?lang=es-mx">Español de México</a></li>
+                        
+                        <li><a href="/i18n/?lang=fr">Français</a></li>
+                        
+                        <li><a href="/i18n/?lang=it">Italiano</a></li>
+                        
+                        <li><a href="/i18n/?lang=is">Íslenska</a></li>
+                        
+                        <li><a href="/i18n/?lang=lv">Latvian</a></li>
+                        
+                        <li><a href="/i18n/?lang=hu">Magyar</a></li>
+                        
+                        <li><a href="/i18n/?lang=nl">Nederlands</a></li>
+                        
+                        <li><a href="/i18n/?lang=pl">Polski</a></li>
+                        
+                        <li><a href="/i18n/?lang=pt-br">Portuguese, Brazil</a></li>
+                        
+                        <li><a href="/i18n/?lang=ru">Русский</a></li>
+                        
+                        <li><a href="/i18n/?lang=sl">Slovenian</a></li>
+                        
+                        <li><a href="/i18n/?lang=fi">Suomi</a></li>
+                        
+                        <li><a href="/i18n/?lang=sv">Svenska</a></li>
+                        
+                        <li><a href="/i18n/?lang=vi">Tiếng Việt</a></li>
+                        
+                        <li><a href="/i18n/?lang=tr">Türkçe</a></li>
+                        
+                        <li><a href="/i18n/?lang=uk">українська мова</a></li>
+                        
+                        <li><a href="/i18n/?lang=he">עברית</a></li>
+                        
+                        <li><a href="/i18n/?lang=ar">العربية</a></li>
+                        
+                        <li><a href="/i18n/?lang=el">ελληνικά</a></li>
+                        
+                        <li><a href="/i18n/?lang=th">ไทย</a></li>
+                        
+                        <li><a href="/i18n/?lang=ko">한국어</a></li>
+                        
+                        <li><a href="/i18n/?lang=ja">日本語</a></li>
+                        
+                        <li><a href="/i18n/?lang=zh-cn">简体中文</a></li>
+                        
+                        <li><a href="/i18n/?lang=zh-tw">繁體中文</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            
+        </div>
+
+        <div id="main" class="container-fluid w100 flex-auto ov-auto">
+            
+<div class="login-panel-outer-container vh">
+<div class="login-panel">
+    <h1 class="login-panel-hd">Log In</h1>
+    <form action="" method="post" id="login-form"><input type='hidden' name='csrfmiddlewaretoken' value='6WHXDqJcGKDP5d1X2Bx2nt354arZZUh3xp2YZwpwYZGSJpS4wxTiz6OUOvbqe9AK' />
+        <input type="text" name="login" placeholder="Email or Username" aria-label="Email or Username" title="Email or Username" value="" class="input name-input" /><br />
+        <input type="password" name="password" placeholder="Password" aria-label="Password" title="Password" value="" class="input passwd-input" autocomplete="off" />
+
+        
+
+        <input type="hidden" name="next" value="/" />
+        
+        <p class="error hide"></p>
+        
+
+        <label class="checkbox-label remember">
+            <input type="checkbox" name="remember_me" class="vam remember-input" />
+            <span class="vam">Remember me for 14 days </span>
+        </label>
+        <a href="/accounts/password/reset/" class="normal forgot-passwd">Forgot password?</a>
+
+        <button type="submit" class="submit btn btn-primary btn-block">Log In</button>
+    </form>
+
+    
+
+    <div class="login-panel-bottom-container">
+        
+    </div>
+</div>
+</div>
+
+        </div>
+
+        
+
+        <div id="confirm-popup" class="hide">
+            <div id="confirm-con"></div>
+            <button id="confirm-yes">Yes</button>
+            <button class="simplemodal-close">No</button>
+        </div>
+</div><!-- wrapper -->
+<script type="text/javascript">
+var SEAFILE_GLOBAL = {
+    csrfCookieName: 'sfcsrftoken'
+};
+var app = {
+    ui : {
+        currentDropdown: false,
+        currentHighlightedItem: false,
+        freezeItemHightlight: false
+    }
+}
+</script>
+<script type="text/javascript" src="/media/assets/scripts/lib/jquery.min.a09e13ee94d5.js" id="jquery"></script>
+<script type="text/javascript" src="/media/assets/scripts/lib/jquery.simplemodal.55150926fcd1.js"></script>
+<script type="text/javascript" src="/media/assets/scripts/lib/jstree.min.3e831b62c177.js"></script>
+<script type="text/javascript" src="/media/js/jq.min.js"></script>
+<script type="text/javascript" src="/media/js/base.js?t=1564023613"></script>
+<script type="text/javascript">
+function prepareAjaxErrorMsg(xhr) {
+    var error_msg;
+    if (xhr.responseText) {
+        var parsed_resp = JSON.parse(xhr.responseText);
+        // use `HTMLescape` for msgs which contain variable like 'path'
+        error_msg = HTMLescape(parsed_resp.error ||
+                parsed_resp.error_msg || parsed_resp.detail);
+    } else {
+        error_msg = gettext("Failed. Please check the network.");
+    }
+    return error_msg;
+}
+function ajaxErrorHandler(xhr, textStatus, errorThrown) {
+    var error_msg = prepareAjaxErrorMsg(xhr);
+    feedback(error_msg, 'error');
+}
+ 
+(function() {
+    var lang_context = $('#lang-context'),
+        lang_selector = $('#lang-context-selector');
+
+    lang_context.parent().css({'position':'relative'});
+
+    if ($('#header').is(':visible')) { // for login page
+        lang_selector.css({
+            'top': lang_context.position().top + lang_context.height() + 5,
+            'right': 0
+        });
+    }
+
+    var setLangSelectorMaxHeight = function() {
+        if ($('#header').is(':visible')) { // for login page
+            $('.sf-popover-con', lang_selector).css({
+                'max-height': $(window).height() - lang_selector.offset().top - 12
+            });
+        }
+    };
+    $(window).on('resize', function() {
+        if (lang_selector.is(':visible')) {
+            setLangSelectorMaxHeight();
+        }
+    });
+
+    lang_context.on('click', function() {
+        lang_selector.toggleClass('hide');
+        if (lang_selector.is(':visible')) {
+            setLangSelectorMaxHeight();
+        }
+        return false;
+    });
+
+    $(document).on('click', function(e) {
+        var element = e.target || e.srcElement;
+        if (element.id != 'lang-context-selector' && element.id != 'lang-context') {
+            lang_selector.addClass('hide');
+        }
+    });
+})();
+
+
+if ($('.side-nav').length) {
+    $('#logo').addClass('hidden-sm-down');
+    $('#js-toggle-side-nav').removeClass('hide');
+}
+$('#js-toggle-side-nav').on('click', function() {
+    $('.side-nav').addClass('side-nav-shown');
+    $('').modal({
+        overlayClose: true,
+        onClose: function() {
+            $('.side-nav').removeClass('side-nav-shown');
+            $.modal.close();
+        }});
+    $('#simplemodal-container').css({'display':'none'});
+    return false;
+});
+$('.js-close-side-nav').on('click', function() {
+    $('.side-nav').removeClass('side-nav-shown');
+    return false;
+});
+</script>
+
+<script type="text/javascript">
+$('.login-panel-outer-container').prepend($($('#logo').html()).attr({'height': 40}).addClass('login-panel-logo'));
+$('.login-panel-bottom-container').append($('#lang').removeClass('fright'));
+
+var $el = $('.login-panel-outer-container');
+var elHeight = $el.outerHeight();
+var wdHeight = $(window).height();
+if (wdHeight > elHeight) {
+    $el.css({'margin-top': (wdHeight - elHeight)/2});
+}
+$('#lang').css({'margin-left': $('#sign-up').outerWidth() + 10});
+$el.removeClass('vh');
+
+$('#lang-context').on('click', function() {
+    var langTop = $('#lang').offset().top;
+    var langSelectorTop;
+    var langSelectorHeight = $('#lang-context-selector .sf-popover-con').outerHeight();
+    if (langSelectorHeight > langTop) {
+        langSelectorTop = '-' + (langTop - 5) + 'px';
+    } else {
+        langSelectorTop = '-' + (langSelectorHeight + 5) + 'px';
+    }
+    $('#lang-context-selector').css({
+        'top': langSelectorTop,
+        'right': 0
+    });
+    $('#lang-context-selector .sf-popover-con').css({
+        'max-height': $('#lang').offset().top - 10
+    });
+});
+
+$('[name="login"]').trigger('focus');
+
+function setCaptchaInputWidth() {
+    $('#id_captcha_1').outerWidth($('.input').outerWidth() - $('.captcha').width() - $('#refresh-captcha').outerWidth(true) - 10);
+}
+$(window).on('load', setCaptchaInputWidth);
+$('.captcha').on('load', setCaptchaInputWidth);
+$('#refresh-captcha').on('click', function() {
+    $.ajax({
+        url: '/captcha/refresh/',
+        dataType:'json',
+        cache:false,
+        success: function(data) {
+            $('.captcha').attr('src', data['image_url']);
+            $('#id_captcha_0').val(data['key']);
+        },
+        error: function() {
+            $('.error').removeClass('hide').html("Failed to refresh the CAPTCHA, please try again later.");
+        }
+    });
+    return false;
+});
+
+$('#login-form').on('submit', function(){
+    if (!$.trim($('input[name="login"]').val())) {
+        $('.error').removeClass('hide').html("Email or username cannot be blank");
+        return false;
+    }
+    if (!$.trim($('input[name="password"]').val())) {
+        $('.error').removeClass('hide').html("Password cannot be blank");
+        return false;
+    }
+});
+// set tabindex
+$(function() {
+    $('input:not([type="hidden"])').each(function(index) {
+        $(this).attr('tabindex', index + 1);
+    });
+});
+
+
+
+</script>
+
+</body>
+</html>

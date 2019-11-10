@@ -4,4 +4,5 @@ path=
 nosniff
 JSESSIONID
 ; /; secure
-Keep-Alive
+; /; HttpOnly
+Server

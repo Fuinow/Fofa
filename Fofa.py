@@ -10,6 +10,7 @@ import time
 import random
 from gevent.pool import Pool
 from bs4 import BeautifulSoup
+from difflib import SequenceMatcher
 
 
 requests.packages.urllib3.disable_warnings()
@@ -54,10 +55,10 @@ class Fofa(object):
     def get_text(self, host):
         # 数据清洗
         headers = {}
-        white_header = ['Cache-Control', 'Connection', 'Content-Encoding', 'Content-Type', 'Date', 'Transfer-Encoding', 'Content-Length', 'Pragma', 'X-Frame-Options', 'X-XSS-Protection', 'Expires']
+        white_header = ['Keep-Alive','Set-Cookie', 'X-Content-Type-Options', 'Accept-Encoding', 'Cache-Control', 'Connection', 'Content-Encoding', 'Content-Type', 'Date', 'Transfer-Encoding', 'Content-Length', 'Pragma', 'X-Frame-Options', 'X-XSS-Protection', 'Expires']
         resp = requests.get(host, headers=self.headers, verify=False)
         text = resp.text.replace('\n', '').replace('\t', '')
-        with open('write_body_t.txt', 'r',encoding='utf-8') as f:
+        with open('white_body_t.txt', 'r',encoding='utf-8') as f:
             for rule in f.readlines():
                 text = text.replace(rule.strip(), '')
         for k,v in resp.headers.items():
@@ -108,7 +109,20 @@ class Fofa(object):
                 return False
         else:
             return False
-        
+
+    def is_white(self, text):
+        RATIO = 0.7
+        with open('white_body.txt', encoding='utf-8') as f:
+            for white in f.readlines():
+                white = white.strip()
+                seqm = SequenceMatcher()
+                seqm.set_seq1(text)
+                seqm.set_seq2(white)
+                if seqm.ratio() > RATIO:
+                    return True
+                else:
+                    pass
+        return False
 
     def get_same_str(self, text1, text2, min_len=10, max_len=500):
         pos_list = []
@@ -143,6 +157,7 @@ class Fofa(object):
                 if len_list:
                     same_str = text1[last_pos[0]:last_pos[0] + max(len_list)]
                     for _str in same_str.split('>'):
+                        _str = _str.strip()
                         if _str not in result and len(_str) >= min_len:
                             result.append(_str)
                 last_pos[0] = pos[0]
@@ -155,6 +170,8 @@ class Fofa(object):
         print('[+] Get body list')
         print(sub_list)
         for sub_rule in sub_list:
+            if self.is_white(sub_rule):
+                continue
             sub_rule = 'body=\"' + sub_rule.replace('\"', '\\\"') + '\"'
             if self.is_sub_rule(sub_rule):
                 print('[!] Found sub_rule: ' + sub_rule)
@@ -215,7 +232,8 @@ class Fofa(object):
         return self.get_rule()
 
 if __name__ == '__main__':
-    fofa = Fofa("app=\"jenkins\"")
+    fofa = Fofa("app=\"discuz\"")
     fofa.start()
+
 
 
