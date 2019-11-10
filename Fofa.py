@@ -8,16 +8,43 @@ import re
 import sys
 import time
 import random
+import queue
+import json
 from gevent.pool import Pool
 from bs4 import BeautifulSoup
 from difflib import SequenceMatcher
 
 
 requests.packages.urllib3.disable_warnings()
+def get_proxies():
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0"
+    }
+    url = "http://118.24.52.95/get_all/"
+    res = requests.get(url)
+    ip_list = json.loads(res.text)
+    count = 0
+    with open('proxies.txt', 'w') as f:
+        for ip in ip_list:
+            ip = ip.get('proxy')
+            print(ip)
+            url = "https://fofa.so"
+            try:
+                res = requests.get(url, headers=headers, verify=False, timeout=10, proxies={'https':'http://'+ip})
+                if res.status_code == 200:
+                    f.write(ip)
+                    f.write('\n')
+                count += 1
+            except:
+                pass
+    print(len(ip_list))
+    print(count)
 
 class Fofa(object):
 
     def __init__(self, app):
+        self.proxies_Q = queue.Queue()
+        self.load_proxies()
         self.check_list_info = []   # 获取的目标网页信息
         self.checked_host_list = []     # 已经比较过的 host
         self.rule_list = []     # 已获取到的子规则
@@ -28,6 +55,13 @@ class Fofa(object):
         }
         self.app_count = self.get_ip_count(app)
 
+    def load_proxies(self):
+        print('[+] Load proxies')
+        with open('proxies.txt') as f:
+            for ip in f.readlines():
+                self.proxies_Q.put(ip.strip())
+
+        return
 
     def get_host_list(self, rule):
         host_list = []
@@ -55,8 +89,13 @@ class Fofa(object):
     def get_text(self, host):
         # 数据清洗
         headers = {}
-        white_header = ['Keep-Alive','Set-Cookie', 'X-Content-Type-Options', 'Accept-Encoding', 'Cache-Control', 'Connection', 'Content-Encoding', 'Content-Type', 'Date', 'Transfer-Encoding', 'Content-Length', 'Pragma', 'X-Frame-Options', 'X-XSS-Protection', 'Expires']
-        resp = requests.get(host, headers=self.headers, verify=False)
+        white_header = ['Keep-Alive', 'X-Content-Type-Options', 'Accept-Encoding', 'Cache-Control', 'Connection', 'Content-Encoding', 'Content-Type', 'Date', 'Transfer-Encoding', 'Content-Length', 'Pragma', 'X-Frame-Options', 'X-XSS-Protection', 'Expires']
+        try:
+            resp = requests.get(host, headers=self.headers, timeout=5, verify=False)
+        except Exception as e:
+            print(e)
+            return
+
         text = resp.text.replace('\n', '').replace('\t', '')
         with open('white_body_t.txt', 'r',encoding='utf-8') as f:
             for rule in f.readlines():
@@ -72,17 +111,35 @@ class Fofa(object):
         return 
 
     def get_ip_count(self, rule):
-        qbase64 = base64.b64encode(rule.encode('utf-8'))
-        url = 'https://fofa.so/result?qbase64=' + str(qbase64, 'utf-8')
-        resp = requests.get(url, headers=self.headers, verify=False)
-        try:
-            count_str = re.search('获得 (.*) 条匹配结果', resp.text).group(1)
-        except Exception as e:
-            print('[-]Error: ' + url)
-            print(e)
+        if not rule:
+            print('[-] rule not exist')
             return 0
-        count = int(count_str.replace(',', ''))
-        return count
+        if self.proxies_Q.qsize() <= 10:
+            self.load_proxies()
+        print('[+] proxies count: ' + str(self.proxies_Q.qsize()))
+        proxy_ip = self.proxies_Q.get()
+        retry = 5
+        ret = 1
+        while ret <= retry:
+            proxies = {"https": "http:"+proxy_ip}
+            qbase64 = base64.b64encode(rule.encode('utf-8'))
+            url = 'https://fofa.so/result?qbase64=' + str(qbase64, 'utf-8')
+
+            try:
+                resp = requests.get(url, headers=self.headers, timeout=10, verify=False, proxies=proxies)
+                count_str = re.search('获得 (.*) 条匹配结果', resp.text).group(1)
+            except Exception as e:
+                print('[-]Error: ' + url)
+                print(e)
+                ret += 1
+                proxy_ip = self.proxies_Q.get()
+                continue
+
+            count = int(count_str.replace(',', ''))
+            self.proxies_Q.put(proxy_ip)
+            return count
+        self.proxies_Q.put(proxy_ip)
+        return 0
 
     def is_sub_rule(self, sub_rule):        
         if sub_rule not in self.checked_rule_list:          
@@ -93,7 +150,6 @@ class Fofa(object):
             # self.checked_rule_list.append(sub_rule)
             # return random.randint(0,1)
 
-            print('[+] Test rule: ' + sub_rule)
             self.checked_rule_list.append(sub_rule)
             count1 = self.get_ip_count(sub_rule)
             time.sleep(random.randint(1,3))
@@ -196,11 +252,49 @@ class Fofa(object):
         return 
 
 
+    def check(self, headers1, headers2, text1, text2):
+        # 处理 header
+        check_list = []
+        keys1 = set(headers1.keys())
+        keys2 = set(headers2.keys())
+        keys = keys1 & keys2
+        for key in keys:
+            sub_rule = 'header=\"' + key.replace('\"', '\\\"') + '\"'
+            check_list.append(sub_rule)
+            sub_list = self.get_same_str(headers1[key], headers2[key], min_len=4)
+            for sub_rule in sub_list:
+                sub_rule = 'header=\"' + sub_rule.replace('\"', '\\\"') + '\"'
+                check_list.append(sub_rule)
+
+        # 处理 body
+        sub_list = self.get_same_str(text1, text2)
+        for sub_rule in sub_list:
+            # if self.is_white(sub_rule):
+            #     continue
+            sub_rule = 'body=\"' + sub_rule.replace('\"', '\\\"') + '\"'
+            check_list.append(sub_rule)
+
+        print(check_list)
+        pool = Pool(5)
+        pool.map(self.add_rule, check_list)
+
+
+        return 
+
+    def add_rule(self, rule):
+        print('[+] check rule: ' + rule)
+        if self.is_sub_rule(rule):
+            print('[!] Found ' + rule)
+            self.rule_list.append(rule)
+        else:
+            pass
+
+
+
     def get_rule(self):
         
         # just test
         # rule = self.app
-
         if self.rule_list:
             rule = '&&'.join(self.rule_list).replace('body=', 'body!=').replace('header=', 'header!=') + '&&'+self.app
         else:
@@ -220,8 +314,8 @@ class Fofa(object):
         text1, headers1 = self.check_list_info[0][1], self.check_list_info[0][2]
         text2, headers2 = self.check_list_info[1][1], self.check_list_info[1][2]
 
-        self.check_header(headers1, headers2)
-        self.check_body(text1, text2)
+        # self.check_body(text1, text2)
+        self.check(headers1, headers2, text1, text2)
         self.check_list_info = []
 
         if self.get_ip_count('||'.join(self.rule_list)) != self.app_count:
@@ -232,8 +326,7 @@ class Fofa(object):
         return self.get_rule()
 
 if __name__ == '__main__':
-    fofa = Fofa("app=\"discuz\"")
+    fofa = Fofa("app=\"zabbix\"")
     fofa.start()
-
 
 

@@ -102,8 +102,15 @@ def get_rule():
 
 
 if __name__ == '__main__':
-    get_text()
-    get_rule()
+    # get_text()
+    # get_rule()
 
- 
+    u1 = 'http://193.124.118.253'
+    u2 = 'http://186.64.71.202'
 
+    t1 = requests.get(u1).text
+    t2 = requests.get(u2).text
+
+    print(t1)
+    print(t2)
+    print(get_same_str(t1, t2))
