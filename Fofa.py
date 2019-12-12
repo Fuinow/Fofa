@@ -30,7 +30,7 @@ def get_proxies():
             print(ip)
             url = "https://fofa.so"
             try:
-                res = requests.get(url, headers=headers, verify=False, timeout=10, proxies={'https':'http://'+ip})
+                res = requests.get(url, headers=headers, verify=False, timeout=5, proxies={'https':'http://'+ip})
                 if res.status_code == 200:
                     f.write(ip)
                     f.write('\n')
@@ -54,13 +54,14 @@ class Fofa(object):
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0"
         }
         self.app_count = self.get_ip_count(app)
+        print(self.app_count)
 
     def load_proxies(self):
         print('[+] Load proxies')
+        self.proxies_Q.put('self')
         with open('proxies.txt') as f:
             for ip in f.readlines():
                 self.proxies_Q.put(ip.strip())
-
         return
 
     def get_host_list(self, rule):
@@ -116,21 +117,24 @@ class Fofa(object):
             return 0
         if self.proxies_Q.qsize() <= 10:
             self.load_proxies()
-        print('[+] proxies count: ' + str(self.proxies_Q.qsize()))
+        # print('[+] proxies count: ' + str(self.proxies_Q.qsize()))
         proxy_ip = self.proxies_Q.get()
         retry = 5
         ret = 1
         while ret <= retry:
-            proxies = {"https": "http:"+proxy_ip}
+            if proxy_ip == 'self':
+                proxies = {}
+            else:
+                proxies = {"https": "http:"+proxy_ip}
             qbase64 = base64.b64encode(rule.encode('utf-8'))
             url = 'https://fofa.so/result?qbase64=' + str(qbase64, 'utf-8')
 
             try:
-                resp = requests.get(url, headers=self.headers, timeout=10, verify=False, proxies=proxies)
+                resp = requests.get(url, headers=self.headers, timeout=35, verify=False, proxies=proxies)
                 count_str = re.search('获得 (.*) 条匹配结果', resp.text).group(1)
             except Exception as e:
-                print('[-]Error: ' + url)
-                print(e)
+                # print('[-]Error: ' + url)
+                # print(e)
                 ret += 1
                 proxy_ip = self.proxies_Q.get()
                 continue
@@ -157,8 +161,6 @@ class Fofa(object):
                 return False
             count2 = self.get_ip_count(sub_rule+'&&'+self.app)
             time.sleep(random.randint(1,3))
-            print(count1)
-            print(count2)
             if count1 != 0 and count1 == count2:
                 return True
             else:
@@ -275,7 +277,7 @@ class Fofa(object):
             check_list.append(sub_rule)
 
         print(check_list)
-        pool = Pool(5)
+        pool = Pool(10)
         pool.map(self.add_rule, check_list)
 
 
@@ -326,7 +328,8 @@ class Fofa(object):
         return self.get_rule()
 
 if __name__ == '__main__':
-    fofa = Fofa("app=\"zabbix\"")
-    fofa.start()
+    # fofa = Fofa("app=\"zabbix\"")
+    # fofa.start()
 
 
+    get_proxies()
