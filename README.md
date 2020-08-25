@@ -1,6 +1,9 @@
 # Fofa
 
-基于 Fofa 的自动化指纹采集工具
+基于 Fofa 的自动化指纹采集工具，详见
+2019-12-12 [基于 FoFa 的自动化指纹提取](https://github.com/Fuinow/MyPaper/blob/master/%E5%9F%BA%E4%BA%8Efofa%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8C%87%E7%BA%B9%E6%8F%90%E5%8F%96/%E5%9F%BA%E4%BA%8Efofa%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8C%87%E7%BA%B9%E6%8F%90%E5%8F%96.md)
+
+2019-12-12 [我想白嫖之突破FOFA查询限制](https://github.com/Fuinow/MyPaper/blob/master/%E6%88%91%E6%83%B3%E7%99%BD%E5%AB%96%E4%B9%8B%E7%AA%81%E7%A0%B4FOFA%E6%9F%A5%E8%AF%A2%E9%99%90%E5%88%B6/%E6%88%91%E6%83%B3%E7%99%BD%E5%AB%96%E4%B9%8B%E7%AA%81%E7%A0%B4FOFA%E6%9F%A5%E8%AF%A2%E9%99%90%E5%88%B6.md)
 
 ## TODO 
 
